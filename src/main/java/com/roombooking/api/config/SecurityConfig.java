@@ -10,6 +10,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.roombooking.api.security.JwtAuthenticationFilter;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 
 @Configuration
 @EnableWebSecurity
@@ -38,7 +40,11 @@ public class SecurityConfig {
                     SessionCreationPolicy.STATELESS
                 )
             )
-
+            .exceptionHandling(exception -> exception
+            .authenticationEntryPoint(
+                    new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)
+                )
+            )
             .authorizeHttpRequests(auth -> auth
 
                 .requestMatchers(

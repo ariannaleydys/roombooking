@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -71,6 +73,30 @@ public class GlobalExceptionHandler {
         );
     }
     
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+        public ResponseEntity<ErrorResponse> handleMethodArgumentTypeMismatch(
+                MethodArgumentTypeMismatchException ex,
+                HttpServletRequest request) {
+
+        String message;
+
+        if (ex.getRequiredType() == LocalDate.class) {
+                message = "Invalid date format. Expected format: yyyy-MM-dd";
+        } else {
+                message = "Invalid value for parameter: " + ex.getName();
+        }
+
+        ErrorResponse errorResponse = new ErrorResponse(
+                LocalDateTime.now(),
+                HttpStatus.BAD_REQUEST.value(),
+                HttpStatus.BAD_REQUEST.getReasonPhrase(),
+                message,
+                request.getRequestURI()
+        );
+
+        return ResponseEntity.badRequest().body(errorResponse);
+        }
+
     private ResponseEntity<ErrorResponse> buildErrorResponse(
             HttpStatus status,
             String message,
