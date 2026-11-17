@@ -2,6 +2,7 @@ package com.roombooking.api.service.impl;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.stereotype.Service;
 
 import com.roombooking.api.config.JwtProperties;
 import com.roombooking.api.dto.request.LoginRequest;
@@ -10,6 +11,7 @@ import com.roombooking.api.security.CustomUserDetailsService;
 import com.roombooking.api.security.JwtService;
 import com.roombooking.api.service.AuthService;
 
+@Service 
 public class AuthServiceImpl implements AuthService {
 
     private final AuthenticationManager authenticationManager;
