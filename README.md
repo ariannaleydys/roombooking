@@ -3,7 +3,7 @@
 
 ## Project Overview
 
-RoomBooking API is a RESTful backend application developed with Java and Spring Boot to manage meeting rooms and their reservations. It allows users to register and authenticate using JWT, manage meeting rooms, and create and manage reservations while validating room availability to prevent scheduling conflicts.
+RoomBooking API is a RESTful backend application developed with Java and Spring Boot to manage meeting rooms and their reservations. It allows users to register and authenticate using JWT, create and list meeting rooms, and  manage reservations validating room availability to prevent scheduling conflicts.
 
 ## Technologies
 
@@ -83,6 +83,7 @@ The following decisions were made during the development process:
 - **H2:** An in-memory database was chosen to simplify local setup and execution.
 - **JPA Specifications:** Used to build flexible optional filters for reservations by room and date.
 - **Reservation validation:** Time interval overlap is checked to prevent conflicting confirmed reservations for the same room.
+
 ## Testing
 
 The project includes unit and integration tests using JUnit 5, Mockito, AssertJ, and Spring Boot Test with MockMvc.
@@ -111,12 +112,12 @@ On Windows:
 **Test results:** All 8 tests pass successfully (5 unit tests and 3 integration tests).
 
 ## What I Would Improve With More Time
-- 
+-
 - **Integration testing:** Expand test coverage to validate REST endpoints, authentication, and authorization within a full application context.
 - **PostgreSQL:** Add a PostgreSQL configuration to provide an environment closer to production.
-- **Docker:** Add containerization to simplify setup and deployment.
 - **CI/CD:** Configure GitHub Actions to automatically run tests and validations whenever changes are pushed.
 - **Security:** Extend role and permission management and consider implementing refresh tokens.
+- **Features:** Of course, the features can be increased to achieve a more complete meeting room booking system.
 
 ## AI Usage
 
@@ -124,17 +125,17 @@ AI tools were used as development assistants throughout the project, mainly to e
 
 The following examples illustrate how AI was used:
 
-| What I asked AI | What I accepted | What I reviewed, corrected, or adapted |
-|---|---|---|
-| How to detect overlapping reservations for the same room. | The logical condition for identifying overlapping time intervals. | Adapted the query to consider only confirmed reservations and match the project's entity model. |
-| Help with Spring Security and JWT configuration. | The general JWT filter structure and stateless security configuration. | Adjusted exception handling and HTTP responses to correctly distinguish authentication and authorization errors. |
-| Suggestions for unit tests for the reservation service. | The test structure using JUnit 5 and Mockito. | Adapted test scenarios to the implemented business rules and verified the results by running the tests. |
-| Review the implementation of optional reservation filters. | The use of JPA Specifications as a flexible approach. | Adapted the implementation to combine room and date filters while preserving pagination. |
+What I asked AI: Help with Spring Security and JWT configuration. 
+What I accepted: The general JWT filter structure and stateless security configuration. 
+What I reviewed, corrected, or adapted: Adjusted exception handling and HTTP responses to correctly distinguish authentication and authorization errors. 
 
-An example of a prompt used during development:
 
-> How can I prevent overlapping reservations for the same room using Spring Data JPA, considering only confirmed reservations?
+What I asked AI: Suggestions for unit tests for the reservation service. 
+What I accepted: The test structure using JUnit 5 and Mockito. 
+What I reviewed, corrected, or adapted: Adapted test scenarios to the implemented business rules and verified the results by running the tests. 
 
-AI-generated suggestions were evaluated before being incorporated. They were not accepted automatically: they were reviewed, adapted, and tested to ensure the final implementation met the project requirements.
 
-Implementation, technical decisions, and code validation remained an active part of the development process.
+What I asked AI: Review the implementation of optional reservation filters. 
+What I accepted: The use of JPA Specifications as a flexible approach. 
+What I reviewed, corrected, or adapted: Adapted the implementation to combine room and date filters while preserving pagination.
+
