@@ -112,7 +112,7 @@ On Windows:
 **Test results:** All 8 tests pass successfully (5 unit tests and 3 integration tests).
 
 ## What I Would Improve With More Time
--
+
 - **Integration testing:** Expand test coverage to validate REST endpoints, authentication, and authorization within a full application context.
 - **PostgreSQL:** Add a PostgreSQL configuration to provide an environment closer to production.
 - **CI/CD:** Configure GitHub Actions to automatically run tests and validations whenever changes are pushed.
@@ -123,19 +123,19 @@ On Windows:
 
 AI tools were used as development assistants throughout the project, mainly to explore implementation alternatives, troubleshoot technical issues, and review code.
 
-The following examples illustrate how AI was used:
+**The following examples illustrate how AI was used:**
 
-What I asked AI: Help with Spring Security and JWT configuration. 
-What I accepted: The general JWT filter structure and stateless security configuration. 
-What I reviewed, corrected, or adapted: Adjusted exception handling and HTTP responses to correctly distinguish authentication and authorization errors. 
-
-
-What I asked AI: Suggestions for unit tests for the reservation service. 
-What I accepted: The test structure using JUnit 5 and Mockito. 
-What I reviewed, corrected, or adapted: Adapted test scenarios to the implemented business rules and verified the results by running the tests. 
+- What I asked AI: Help with Spring Security and JWT configuration. 
+- What I accepted: The general JWT filter structure and stateless security configuration. 
+- What I reviewed, corrected, or adapted: Adjusted exception handling and HTTP responses to correctly distinguish authentication and authorization errors. 
 
 
-What I asked AI: Review the implementation of optional reservation filters. 
-What I accepted: The use of JPA Specifications as a flexible approach. 
-What I reviewed, corrected, or adapted: Adapted the implementation to combine room and date filters while preserving pagination.
+- What I asked AI: Suggestions for unit tests for the reservation service. 
+- What I accepted: The test structure using JUnit 5 and Mockito. 
+- What I reviewed, corrected, or adapted: Adapted test scenarios to the implemented business rules and verified the results by running the tests. 
+
+
+- What I asked AI: Review the implementation of optional reservation filters. 
+- What I accepted: The use of JPA Specifications as a flexible approach. 
+- What I reviewed, corrected, or adapted: Adapted the implementation to combine room and date filters while preserving pagination.
 
